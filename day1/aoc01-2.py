@@ -61,4 +61,4 @@ moves = s.replace('\n', '').split(', ')
 start = (0,0)
 
 print manhattan_distance(start, navigate(start, NORTH, ['R8', 'R4', 'R4', 'R8']))
-print manhattan_distance(start, navigate(start, NORTH, moves)) # Result: 
+print manhattan_distance(start, navigate(start, NORTH, moves)) # Result: 159
