@@ -1,21 +1,17 @@
+def valid(pos, rows, cols):
+    return (pos[0] >= 0 and pos[0] <= rows - 1 and pos[1] >= 0 and
+            pos[1] <= cols - 1)
+
 def move(keypad, start, instruction):
     pos = start
     rows = len(keypad)
     cols = len(keypad[0])
+    d = {'L': (0, -1), 'R': (0, 1), 'U': (-1, 0), 'D': (1, 0)}
 
     for step in instruction:
-        if step == 'L':
-            if pos[1] > 0:
-                pos = (pos[0], pos[1] - 1) 
-        elif step == 'R':
-            if pos[1] < cols - 1:
-                pos = (pos[0], pos[1] + 1)
-        elif step == 'U':
-            if pos[0] > 0:
-                pos = (pos[0] - 1, pos[1])
-        elif step == 'D':
-            if pos[0] < rows - 1:
-                pos = (pos[0] + 1, pos[1])
+        drow,dcol = d[step]
+        if valid((pos[0] + drow, pos[1] + dcol), rows, cols):
+            pos = (pos[0] + drow, pos[1] + dcol)
 
     return pos
 
