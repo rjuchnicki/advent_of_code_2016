@@ -23,9 +23,9 @@ def step(xy, heading, move):
 
     return xy_new, heading_new
 
-def navigate(xy, starting_heading, moves):
+def navigate(xy, start_heading, moves):
     xy_new = xy
-    heading = starting_heading
+    heading = start_heading
     for move in moves:
         xy_new, heading = step(xy_new, heading, move)
 
