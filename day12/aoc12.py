@@ -9,8 +9,8 @@ def lookup(v):
         return registers[v]
 
 i = 0
-registers = {'a': 0, 'b': 0, 'c': 0, 'd': 0}
-# registers = {'a': 0, 'b': 0, 'c': 1, 'd': 0} Input for part 2
+registers = {'a': 0, 'b': 0, 'c': 0, 'd': 0} # Part 1 input
+# registers = {'a': 0, 'b': 0, 'c': 1, 'd': 0} # Part 2 input
 while i < len(instructions):
     ins = instructions[i]
     if (ins[0] == 'inc'):
