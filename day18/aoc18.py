@@ -8,7 +8,7 @@ rows = 400000  # Part 2
 
 count = 0
 for i in xrange(0, rows):
-    count += tiles.count('.')
+    count += tiles.count('.') - 2
     new_tiles = '.'
     for i in xrange(1, len(tiles) - 1):
         if tiles[i-1] == '^' and tiles[i] == '^' and tiles[i+1] == '.':
@@ -24,5 +24,4 @@ for i in xrange(0, rows):
 
     tiles = new_tiles + '.'
 
-# print count - 40 * 2  # Part 1
-print count - 400000 * 2  # Part 2
+print count
