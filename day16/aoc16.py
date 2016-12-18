@@ -1,6 +1,6 @@
 a = '11011110011011101'
-disk_size = 272 # Part 1 input
-# disk_size = 35651584 # Part 2 input
+disk_size = 272  # Part 1 input
+# disk_size = 35651584  # Part 2 input
 
 while len(a) < disk_size:
     a = a + '0' + ''.join('1' if i == '0' else '0' for i in a[::-1])
