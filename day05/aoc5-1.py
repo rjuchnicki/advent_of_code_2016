@@ -7,7 +7,6 @@ i = 0
 while len(passcode) < 8:
     h = md5((door_id + str(i)).encode('utf-8')).hexdigest()
     if h[:5] == '00000':
-        print h
         passcode += h[5]
 
     i += 1
