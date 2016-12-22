@@ -4,24 +4,22 @@ f = open('07_input.txt', 'r')
 ips = f.read().split('\n')
 f.close()
 
-def find_abas(s):
-    abas = []
-    for i in xrange(2, len(s)):
-        candidate = s[i-2:i+1]
-        if candidate[0] == candidate[2] and candidate[0] != candidate[1]:
-            abas.append(candidate)
-    return abas
-
 def supports_ssl(ip):
     babs = []
     for bracketed in re.finditer(r'\[[\w]*(\w)\w\1[\w]*\]', ip):
         s = bracketed.group(0)[1:-1]
-        babs += find_abas(s)
+        for i in xrange(2, len(s)):
+            candidate = s[i-2:i+1]
+            if candidate[0] == candidate[2] and candidate[0] != candidate[1]:
+                babs.append(candidate)
 
     abas = []
     non_bracketed = [re.sub(r'\w*\]', '', s) for s in ip.split('[')]
     for s in non_bracketed:
-        abas += find_abas(s)
+        for i in xrange(2, len(s)):
+            candidate = s[i-2:i+1]
+            if candidate[0] == candidate[2] and candidate[0] != candidate[1]:
+                abas.append(candidate)
     
     for aba in abas:
         for bab in babs:
